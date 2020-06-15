@@ -1,0 +1,466 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
+
+public class Main {
+
+	static String cis1 = "";
+	static String cis2 = "";
+	static int znam = 0;
+	static int pom = 0;
+	static int ved = 0;
+	static BigDecimal vysledek = new BigDecimal("0");
+	static int klad1 = 0;
+	static int klad2 = 0;
+	static int des1 = 0;
+	static int des2 = 0;
+	static BigDecimal Ans = new BigDecimal("0");
+
+	public static void main(String[] args) {
+
+		vysledek.setScale(100);
+
+		JFrame frame = new JFrame("Kalkulačka");
+		JFrame frame2 = new JFrame("Kalkulačka");
+
+		JPanel panel1 = new JPanel();
+		JPanel panel2 = new JPanel();
+		JPanel panel3 = new JPanel();
+
+		frame.add(panel1, BorderLayout.CENTER);
+		frame2.add(panel2, BorderLayout.CENTER);
+		frame2.add(panel3, BorderLayout.SOUTH);
+
+		Color barva = new Color(0, 20, 255);
+		panel1.setBackground(barva);
+		panel2.setBackground(barva);
+		panel3.setBackground(barva);
+
+		JLabel label1 = new JLabel("  ");
+		panel2.add(label1);
+
+		JLabel label2 = new JLabel("  ");
+		panel2.add(label2);
+
+		JLabel labelz1 = new JLabel("  ");
+		panel2.add(labelz1);
+
+		JLabel label3 = new JLabel("");
+		panel2.add(label3);
+
+		JLabel labelz2 = new JLabel("");
+		panel2.add(labelz2);
+
+		JTextArea label4 = new JTextArea(6, 12);
+		label4.setEditable(false); // set textArea non-editable
+		JScrollPane scroll = new JScrollPane(label4);
+		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		panel2.add(scroll);
+
+		JTextArea desCis = new JTextArea(1, 12);
+		desCis.setText("100");
+		panel2.add(desCis);
+
+		JButton button = new JButton("7");
+		panel1.add(button);
+
+		JButton button2 = new JButton("8");
+		panel1.add(button2);
+
+		JButton button3 = new JButton("9");
+		panel1.add(button3);
+
+		JButton button4 = new JButton("4");
+		panel1.add(button4);
+
+		JButton button5 = new JButton("5");
+		panel1.add(button5);
+
+		JButton button6 = new JButton("6");
+		panel1.add(button6);
+
+		JButton button7 = new JButton("1");
+		panel1.add(button7);
+
+		JButton button8 = new JButton("2");
+		panel1.add(button8);
+
+		JButton button9 = new JButton("3");
+		panel1.add(button9);
+
+		JButton button10 = new JButton("0");
+		panel1.add(button10);
+
+		JButton buttonpl = new JButton("+");
+		panel1.add(buttonpl);
+
+		JButton buttonmi = new JButton("-");
+		panel1.add(buttonmi);
+
+		JButton buttonc = new JButton("C");
+		panel1.add(buttonc);
+
+		JButton buttonkr = new JButton("*");
+		panel1.add(buttonkr);
+
+		JButton buttonde = new JButton("/");
+		panel1.add(buttonde);
+
+		JButton buttonte = new JButton(",");
+		panel1.add(buttonte);
+
+		JButton buttonan = new JButton("A");
+		panel1.add(buttonan);
+
+		JButton buttonro = new JButton("=");
+		panel1.add(buttonro);
+
+//-----------------------------------------------------------------------------------------------------
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(170, 220);
+		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
+		frame.setLocation(new Point((int) frame.getLocation().getX(), (int) frame.getLocation().getY() + 100));
+		frame.setResizable(false);
+
+		frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame2.setSize(170, 220);
+		frame2.setVisible(true);
+		frame2.setLocationRelativeTo(null);
+		frame2.setLocation(new Point((int) frame2.getLocation().getX(), (int) frame2.getLocation().getY() - 90));
+		frame2.setResizable(false);
+		frame2.setAlwaysOnTop(true);
+//-----------------------------------------------------------------------------------------------------
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				ved = 1;
+				if (pom == 0) {
+					cis1 = cis1 + "7";
+					label1.setText(cis1 + " ");
+				} else if (pom == 1) {
+					cis2 = cis2 + "7";
+					label3.setText(cis2);
+					ved = 3;
+				}
+			};
+		});
+
+		button2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				ved = 1;
+				if (pom == 0) {
+					cis1 = cis1 + "8";
+					label1.setText(cis1 + " ");
+				} else if (pom == 1) {
+					cis2 = cis2 + "8";
+					label3.setText(cis2);
+					ved = 3;
+				}
+			};
+		});
+
+		button3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				ved = 1;
+				if (pom == 0) {
+					cis1 = cis1 + "9";
+					label1.setText(cis1 + " ");
+				} else if (pom == 1) {
+					cis2 = cis2 + "9";
+					label3.setText(cis2);
+					ved = 3;
+				}
+			};
+		});
+
+		button4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				ved = 1;
+				if (pom == 0) {
+					cis1 = cis1 + "4";
+					label1.setText(cis1 + " ");
+				} else if (pom == 1) {
+					cis2 = cis2 + "4";
+					label3.setText(cis2);
+					ved = 3;
+				}
+			};
+		});
+
+		button5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				ved = 1;
+				if (pom == 0) {
+					cis1 = cis1 + "5";
+					label1.setText(cis1 + " ");
+				} else if (pom == 1) {
+					cis2 = cis2 + "5";
+					label3.setText(cis2);
+					ved = 3;
+				}
+			};
+		});
+
+		button6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				ved = 1;
+				if (pom == 0) {
+					cis1 = cis1 + "6";
+					label1.setText(cis1 + " ");
+				} else if (pom == 1) {
+					cis2 = cis2 + "6";
+					label3.setText(cis2);
+					ved = 3;
+				}
+			};
+		});
+
+		button7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				ved = 1;
+				if (pom == 0) {
+					cis1 = cis1 + "1";
+					label1.setText(cis1 + " ");
+				} else if (pom == 1) {
+					cis2 = cis2 + "1";
+					label3.setText(cis2);
+					ved = 3;
+				}
+			};
+		});
+
+		button8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				ved = 1;
+				if (pom == 0) {
+					cis1 = cis1 + "2";
+					label1.setText(cis1 + " ");
+				} else if (pom == 1) {
+					cis2 = cis2 + "2";
+					label3.setText(cis2);
+					ved = 3;
+				}
+			};
+		});
+
+		button9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				ved = 1;
+				if (pom == 0) {
+					cis1 = cis1 + "3";
+					label1.setText(cis1 + " ");
+				} else if (pom == 1) {
+					cis2 = cis2 + "3";
+					label3.setText(cis2);
+					ved = 3;
+				}
+			};
+		});
+
+		button10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				ved = 1;
+				if (pom == 0) {
+					cis1 = cis1 + "0";
+					label1.setText(cis1 + " ");
+				} else if (pom == 1) {
+					cis2 = cis2 + "0";
+					label3.setText(cis2);
+					ved = 3;
+				}
+			};
+		});
+
+//-----------------------------------------------------------------------------------------------------
+
+		buttonpl.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				if (pom == 0 && ved != 0) {
+					znam = 1;
+					pom = 1;
+					label2.setText("+");
+				}
+			};
+		});
+
+		buttonmi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				if (pom == 0 && ved != 0) {
+					znam = 2;
+					pom = 1;
+					label2.setText("-");
+				} else if (ved != 3 && pom == 1 && klad2 == 0) {
+					klad2 = 1;
+					cis2 = "-";
+					label3.setText(cis2);
+					labelz1.setText("(");
+					labelz2.setText(")");
+				} else if (ved == 0 && klad1 == 0) {
+					klad1 = 1;
+					cis1 = "-";
+					label1.setText(cis1 + " ");
+				}
+			};
+		});
+
+		buttonkr.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				if (pom == 0 && ved != 0) {
+					znam = 3;
+					pom = 1;
+					label2.setText("*");
+				}
+			};
+		});
+
+		buttonde.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				if (pom == 0 && ved != 0) {
+					znam = 4;
+					pom = 1;
+					label2.setText("/");
+				}
+			};
+		});
+
+		buttonc.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				label1.setText("  ");
+				label2.setText("  ");
+				label3.setText("");
+				label4.setText("");
+				labelz1.setText("  ");
+				labelz2.setText("");
+				cis1 = "";
+				cis2 = "";
+				znam = 0;
+				pom = 0;
+				ved = 0;
+				klad1 = 0;
+				klad2 = 0;
+				vysledek = BigDecimal.valueOf(0);
+				des1 = 0;
+				des2 = 0;
+			};
+		});
+
+		buttonte.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				if (pom == 0 && des1 == 0) {
+					if (ved == 0) {
+						cis1 = cis1 + "0.";
+						label1.setText(cis1 + " ");
+					} else if (ved == 1) {
+						cis1 = cis1 + ".";
+						label1.setText(cis1 + " ");
+						ved = 0;
+					}
+					des1 = 1;
+				} else if (pom == 1 && des2 == 0) {
+					if (ved == 1) {
+						cis2 = cis2 + "0.";
+						label3.setText(cis2);
+					} else if (ved == 3) {
+						cis2 = cis2 + ".";
+						label3.setText(cis2);
+						ved = 1;
+					}
+					des2 = 1;
+				}
+			};
+		});
+
+		buttonan.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				ved = 1;
+				if (pom == 0) {
+					cis1 = Ans + "";
+					label1.setText(cis1 + " ");
+
+				} else if (pom == 1) {
+					cis2 = Ans + "";
+					label3.setText(cis2);
+					ved = 3;
+				}
+			};
+		});
+
+		buttonro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				if (ved == 3) {
+					switch (znam) {
+					case 1:
+						vysledek = new BigDecimal(cis1).add(new BigDecimal(cis2));
+						String vypis = "=  " + vysledek;
+						String opravduVypis = "";
+						for (int i = 0; i < vypis.length(); i++) {
+							opravduVypis += vypis.charAt(i);
+							if (i % 17 == 0 && i != 0) {
+								opravduVypis += "\r\n";
+							}
+						}
+						label4.setText(" " + opravduVypis);
+						break;
+					case 2:
+						vysledek = new BigDecimal(cis1).subtract(new BigDecimal(cis2));
+						vypis = "=  " + vysledek;
+						opravduVypis = "";
+						for (int i = 0; i < vypis.length(); i++) {
+							opravduVypis += vypis.charAt(i);
+							if (i % 17 == 0 && i != 0) {
+								opravduVypis += "\r\n";
+							}
+						}
+						label4.setText(" " + opravduVypis);
+						break;
+					case 3:
+						vysledek = new BigDecimal(cis1).multiply(new BigDecimal(cis2));
+						vypis = "=  " + vysledek;
+						opravduVypis = "";
+						for (int i = 0; i < vypis.length(); i++) {
+							opravduVypis += vypis.charAt(i);
+							if (i % 17 == 0 && i != 0) {
+								opravduVypis += "\r\n";
+							}
+						}
+						label4.setText(" " + opravduVypis);
+						break;
+					case 4:
+						if (cis2.equals("0") || cis2.equals("0.0")) {
+							label4.setText(String.valueOf("=  Impossible action"));
+						} else {
+							vysledek.setScale(20);
+							vysledek = (new BigDecimal(cis1).divide(new BigDecimal(cis2),
+									Integer.parseInt(desCis.getText()), RoundingMode.HALF_UP));
+							vypis = "=  " + vysledek;
+							opravduVypis = "";
+							for (int i = 0; i < vypis.length(); i++) {
+								opravduVypis += vypis.charAt(i);
+								if (i % 17 == 0 && i != 0) {
+									opravduVypis += "\r\n";
+								}
+							}
+							label4.setText(" " + opravduVypis);
+						}
+						break;
+					}
+					Ans = vysledek;
+					pom = -1;
+				}
+			};
+		});
+
+	}
+}
