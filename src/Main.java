@@ -32,8 +32,8 @@ public class Main {
 
 		vysledek.setScale(100);
 
-		JFrame frame = new JFrame("KalkulaÄka");
-		JFrame frame2 = new JFrame("KalkulaÄka");
+		JFrame frame = new JFrame("Kalkulaèka");
+		JFrame frame2 = new JFrame("Kalkulaèka");
 
 		JPanel panel1 = new JPanel();
 		JPanel panel2 = new JPanel();
